@@ -14,10 +14,8 @@ export const convertToPercentage = (a, b) => {
 
 export const formatBytesIntoMb = (bytes) => {
   if (bytes === 0) return 0;
+  const divisor = platform === 'win32' | platform === 'linux' ? 1024 : 2048;
   // The mac command of 'node-disk-info' returns data in block size of 512 bytes
   // So, to convert it into MB we devide the number of blocks by 1024 * 2;
-  if (platform === 'darwin' || platform === 'freebsd') {
-    return Math.ceil(bytes / 2048)
-  }
-  return Math.ceil(bytes / 1024 / 1024);
+  return Math.ceil(bytes / divisor);
 }
