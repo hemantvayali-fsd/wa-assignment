@@ -24,7 +24,8 @@ app.get('/system-info', async (_, res) => {
   try {
     const processes = (await psList({ all: false })).map(p => { });
     const hdd = await getDiskInfo();
-    res.status(200).send({ hello: 'world' });
+    responseObj.hdd = hdd;
+    res.status(200).json(responseObj);
   } catch (error) {
     console.log(error);
     res.status(500).send("Something went wrong");
@@ -34,25 +35,3 @@ app.get('/system-info', async (_, res) => {
 createServer(app).listen(PORT, () => {
   console.log(`Server is listening on port ${PORT}`);
 });
-
-
-// Response schema for '/system-info' endpoint
-/*
-{
-  response: {
-    code: number,
-    error?: string,
-    data: {
-      timestamp: string,      // DateTime Format (in UTC)
-      activeProcesses: [
-        {
-
-        }
-      ],
-      diskInfo: [
-
-      ]
-    }
-  }
-}
-*/
