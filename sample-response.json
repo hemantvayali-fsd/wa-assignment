@@ -1,0 +1,61 @@
+{
+  "timestamp": "2023-08-16T10:23:06.367Z",
+  "ram": {
+    "totalSpace": 965.7421875,
+    "usedSpace": { "inMb": 422.7421875, "inPerc": 44 },
+    "freeSpace": { "inMb": 543, "inPerc": 57 }
+  },
+  "processes": [
+    { "pid": 23937, "name": "systemd" },
+    { "pid": 23939, "name": "(sd-pam)" },
+    { "pid": 24021, "name": "sshd" },
+    { "pid": 24022, "name": "bash" },
+    { "pid": 24344, "name": "sshd" },
+    { "pid": 24345, "name": "bash" },
+    { "pid": 24633, "name": "node" },
+    { "pid": 24644, "name": "curl" }
+  ],
+  "hdd": {
+    "totalSpace": 19663,
+    "usedSpace": { "inMb": 2377, "inPerc": 13 },
+    "freeSpace": { "inMb": 17286, "inPerc": 87 },
+    "drives": [
+      {
+        "mountPoint": "/",
+        "totalSpace": 19663,
+        "usedSpace": { "inMb": 2368, "inPerc": 13 },
+        "freeSpace": { "inMb": 17295, "inPerc": 87 }
+      },
+      {
+        "mountPoint": "/dev/shm",
+        "totalSpace": 483,
+        "usedSpace": { "inMb": 0, "inPerc": 0 },
+        "freeSpace": { "inMb": 483, "inPerc": 100 }
+      },
+      {
+        "mountPoint": "/run",
+        "totalSpace": 194,
+        "usedSpace": { "inMb": 1, "inPerc": 1 },
+        "freeSpace": { "inMb": 193, "inPerc": 99 }
+      },
+      {
+        "mountPoint": "/run/lock",
+        "totalSpace": 5,
+        "usedSpace": { "inMb": 0, "inPerc": 0 },
+        "freeSpace": { "inMb": 5, "inPerc": 100 }
+      },
+      {
+        "mountPoint": "/boot/efi",
+        "totalSpace": 105,
+        "usedSpace": { "inMb": 7, "inPerc": 7 },
+        "freeSpace": { "inMb": 98, "inPerc": 93 }
+      },
+      {
+        "mountPoint": "/run/user/1000",
+        "totalSpace": 97,
+        "usedSpace": { "inMb": 1, "inPerc": 2 },
+        "freeSpace": { "inMb": 96, "inPerc": 98 }
+      }
+    ]
+  }
+}

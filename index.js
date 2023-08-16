@@ -28,11 +28,11 @@ app.get('/system-info', async (_, res) => {
   const responseObj = { timestamp: new Date() };
   try {
     responseObj.ram = getRamInfo();
+    const hdd = await getDiskInfo();
+    responseObj.hdd = hdd;
     responseObj.processes = (await psList({ all: false })).map(({ pid, name }) => {
       return { pid, name };
     });
-    const hdd = await getDiskInfo();
-    responseObj.hdd = hdd;
     res.status(200).json(responseObj);
   } catch (error) {
     console.log(error);
