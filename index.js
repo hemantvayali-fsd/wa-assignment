@@ -4,16 +4,22 @@ process.env.TZ = "utc";
 import { createServer } from 'node:http';
 import express from 'express';
 import psList from 'ps-list';
+import compression from 'compression';
+import helmet from 'helmet';
 
 // loading environment variables
 import { config as configEnv } from 'dotenv';
 configEnv();
 import { getDiskInfo } from './disk-info.js';
+import { shouldCompress } from './middlewares/should-compress.js'
 
 
 const PORT = process.env.PORT || 3000;
 
 const app = express();
+
+app.use(helmet());
+app.use(compression({ filter: shouldCompress }))
 
 app.get('', (_, res) => {
   res.send("Use /system-info to get server details");
@@ -22,7 +28,9 @@ app.get('', (_, res) => {
 app.get('/system-info', async (_, res) => {
   const responseObj = { timestamp: new Date() };
   try {
-    const processes = (await psList({ all: false })).map(p => { });
+    responseObj.processes = (await psList({ all: false })).map(({ pid, name }) => {
+      return { pid, name };
+    });
     const hdd = await getDiskInfo();
     responseObj.hdd = hdd;
     res.status(200).json(responseObj);

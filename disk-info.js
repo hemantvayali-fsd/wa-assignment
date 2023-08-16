@@ -21,7 +21,6 @@ const parseDiskData = (dataList) => {
       freeSpace: { inMb: totalSpace - usedSpace, inPerc: 100 - usedSpacePerc }
     }
     hdd.drives.push(obj);
-    console.log(obj.usedSpace, obj.freeSpace);
   }
   hdd.usedSpace.inPerc = convertToPercentage(hdd.usedSpace.inMb, hdd.totalSpace);
   hdd.freeSpace.inMb = hdd.totalSpace - hdd.usedSpace.inMb;
