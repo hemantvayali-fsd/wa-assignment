@@ -1,7 +1,7 @@
 import { totalmem, freemem } from 'node:os';
 import diskInfo from 'node-disk-info';
 
-import { convertToPercentage, formatBytesIntoMb } from './utils.js';
+import { calculatePercentage, formatBytesIntoMb } from './utils.js';
 
 const parseDiskData = (dataList) => {
   const hdd = {
@@ -12,9 +12,10 @@ const parseDiskData = (dataList) => {
   };
   hdd.totalSpace = formatBytesIntoMb(dataList[0].blocks);
   for (let drive of dataList) {
+    // process data for each drive
     const totalSpace = formatBytesIntoMb(drive.blocks);
     const usedSpace = formatBytesIntoMb(drive.used);
-    const usedSpacePerc = convertToPercentage(usedSpace, totalSpace);
+    const usedSpacePerc = calculatePercentage(usedSpace, totalSpace);
     hdd.usedSpace.inMb += usedSpace;
     const obj = {
       mountPoint: drive.mounted,
@@ -24,7 +25,7 @@ const parseDiskData = (dataList) => {
     }
     hdd.drives.push(obj);
   }
-  hdd.usedSpace.inPerc = convertToPercentage(hdd.usedSpace.inMb, hdd.totalSpace);
+  hdd.usedSpace.inPerc = calculatePercentage(hdd.usedSpace.inMb, hdd.totalSpace);
   hdd.freeSpace.inMb = hdd.totalSpace - hdd.usedSpace.inMb;
   hdd.freeSpace.inPerc = 100 - hdd.usedSpace.inPerc;
   return hdd;
@@ -41,7 +42,7 @@ export const getRamInfo = () => {
   const usedRAM = totalRAM - freeRAM;
   return {
     totalSpace: totalRAM,
-    usedSpace: { inMb: usedRAM, inPerc: convertToPercentage(usedRAM, totalRAM) },
-    freeSpace: { inMb: freeRAM, inPerc: convertToPercentage(freeRAM, totalRAM) }
+    usedSpace: { inMb: usedRAM, inPerc: calculatePercentage(usedRAM, totalRAM) },
+    freeSpace: { inMb: freeRAM, inPerc: calculatePercentage(freeRAM, totalRAM) }
   }
 }
