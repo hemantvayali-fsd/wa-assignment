@@ -6,11 +6,10 @@ import express from 'express';
 import psList from 'ps-list';
 import compression from 'compression';
 import helmet from 'helmet';
-
 // loading environment variables
-import { config as configEnv } from 'dotenv';
-configEnv();
-import { getDiskInfo } from './disk-info.js';
+import { config as configEnv } from 'dotenv'; configEnv();
+
+import { getDiskInfo, getRamInfo } from './disk-info.js';
 import { shouldCompress } from './middlewares/should-compress.js'
 
 
@@ -28,6 +27,7 @@ app.get('', (_, res) => {
 app.get('/system-info', async (_, res) => {
   const responseObj = { timestamp: new Date() };
   try {
+    responseObj.ram = getRamInfo();
     responseObj.processes = (await psList({ all: false })).map(({ pid, name }) => {
       return { pid, name };
     });

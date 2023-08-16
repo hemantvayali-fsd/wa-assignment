@@ -1,4 +1,6 @@
+import { totalmem, freemem } from 'node:os';
 import diskInfo from 'node-disk-info';
+
 import { convertToPercentage, formatBytesIntoMb } from './utils.js';
 
 const parseDiskData = (dataList) => {
@@ -29,10 +31,17 @@ const parseDiskData = (dataList) => {
 }
 
 export const getDiskInfo = async () => {
-  try {
-    const drives = await diskInfo.getDiskInfo();
-    return parseDiskData(drives);
-  } catch (error) {
-    throw error;
-  }
+  const drives = await diskInfo.getDiskInfo();
+  return parseDiskData(drives);
 };
+
+export const getRamInfo = () => {
+  const totalRAM = (totalmem() / 1024 / 1024);
+  const freeRAM = Math.round(freemem() / 1024 / 1024);
+  const usedRAM = totalRAM - freeRAM;
+  return {
+    totalSpace: totalRAM,
+    usedSpace: { inMb: usedRAM, inPerc: convertToPercentage(usedRAM, totalRAM) },
+    freeSpace: { inMb: freeRAM, inPerc: convertToPercentage(freeRAM, totalRAM) }
+  }
+}

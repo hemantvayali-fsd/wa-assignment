@@ -1,7 +1,7 @@
 import { execSync } from 'node:child_process';
-import os from 'node:os';
+import { platform as getPlatform } from 'node:os';
 
-const platform = os.platform().toLowerCase();
+const platform = getPlatform().toLowerCase();
 
 export const execute = (command) => {
   return execSync(command, { windowsHide: true, encoding: 'buffer' });
