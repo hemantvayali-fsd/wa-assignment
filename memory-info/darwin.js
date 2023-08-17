@@ -1,9 +1,11 @@
-import { exec } from "../utils.js";
+import { exec } from "./utils.js";
 
 const CMD_DISK = `df -Pl | tail -n +2`;
 
-export const processLinuxDisk = async () => {
+export const processDarwinDisk = async () => {
+  const re = new RegExp(/^(\/dev\/disk\d{1})/);
   const drives = [];
+  const disks = {};
   let totalUsedSpace = 0;
   let totalDiskSpace = 0;
 
@@ -22,7 +24,11 @@ export const processLinuxDisk = async () => {
     }
     data.freeSpacePercent = 100 - data.usedSpacePercent;
     totalUsedSpace += data.usedSpace;
-    totalDiskSpace += data.totalSpace;
+    const diskName = data.fileSystem.match(re)[0];
+    if (!disks[diskName]) {
+      totalDiskSpace += data.totalSpace;
+      disks[diskName] = true;
+    }
     drives.push(data);
   }
   return {
@@ -35,5 +41,5 @@ export const processLinuxDisk = async () => {
 
 function convertToMB(bytes) {
   if (!bytes) return 0;
-  return Math.ceil(bytes / 1024);
+  return Math.ceil(bytes / 1024 / 2);
 }

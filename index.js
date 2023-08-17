@@ -9,9 +9,8 @@ import helmet from 'helmet';
 // loading environment variables
 import { config as configEnv } from 'dotenv'; configEnv();
 
-import { getRamInfo } from './disk-info.js';
 import { shouldCompress } from './middlewares/should-compress.js'
-import { getDriveInfo } from './disk-info/index.js';
+import { getDriveInfo, getRamData } from './memory-info/index.js';
 
 
 const PORT = process.env.PORT || 3000;
@@ -28,7 +27,7 @@ app.get('', (_, res) => {
 app.get('/system-info', async (_, res) => {
   const responseObj = { timestamp: new Date() };
   try {
-    responseObj.ram = getRamInfo();
+    responseObj.ram = getRamData();
     responseObj.hdd = await getDriveInfo();
     responseObj.processes = (await psList({ all: false })).map(({ pid, name }) => {
       return { pid, name };

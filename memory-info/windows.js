@@ -1,5 +1,5 @@
 import iconv from 'iconv-lite';
-import { exec } from '../utils.js';
+import { exec } from './utils.js';
 
 const WINDOWS_COMMAND = 'wmic logicaldisk get Caption,FreeSpace,Size,VolumeSerialNumber,Description  /format:list';
 

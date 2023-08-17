@@ -1,20 +1,22 @@
 {
-  "timestamp": "2023-08-17T07:08:12.893Z",
+  "timestamp": "2023-08-17T07:29:51.901Z",
   "ram": {
     "totalSpace": 16384,
-    "usedSpace": { "inMb": 16162, "inPerc": 99 },
-    "freeSpace": { "inMb": 222, "inPerc": 2 }
+    "usedSpace": 16175,
+    "freeSpace": 209,
+    "freeSpacePercent": 1,
+    "usedSpacePercent": 99
   },
   "hdd": {
     "totalSpace": 471983,
-    "usedSpace": 222870,
-    "freeSpace": 249113,
+    "usedSpace": 222865,
+    "freeSpace": 249118,
     "drives": [
       {
         "fileSystem": "/dev/disk3s1s1",
         "totalSpace": 471483,
         "usedSpace": 8642,
-        "freeSpace": 247718,
+        "freeSpace": 247723,
         "usedSpacePercent": 4,
         "freeSpacePercent": 96,
         "mounted": "/"
@@ -23,7 +25,7 @@
         "fileSystem": "/dev/disk3s6",
         "totalSpace": 471483,
         "usedSpace": 1,
-        "freeSpace": 247718,
+        "freeSpace": 247723,
         "usedSpacePercent": 1,
         "freeSpacePercent": 99,
         "mounted": "/System/Volumes/VM"
@@ -32,7 +34,7 @@
         "fileSystem": "/dev/disk3s2",
         "totalSpace": 471483,
         "usedSpace": 4803,
-        "freeSpace": 247718,
+        "freeSpace": 247723,
         "usedSpacePercent": 2,
         "freeSpacePercent": 98,
         "mounted": "/System/Volumes/Preboot"
@@ -41,7 +43,7 @@
         "fileSystem": "/dev/disk3s4",
         "totalSpace": 471483,
         "usedSpace": 26,
-        "freeSpace": 247718,
+        "freeSpace": 247723,
         "usedSpacePercent": 1,
         "freeSpacePercent": 99,
         "mounted": "/System/Volumes/Update"
@@ -76,8 +78,8 @@
       {
         "fileSystem": "/dev/disk3s5",
         "totalSpace": 471483,
-        "usedSpace": 209381,
-        "freeSpace": 247718,
+        "usedSpace": 209376,
+        "freeSpace": 247723,
         "usedSpacePercent": 46,
         "freeSpacePercent": 54,
         "mounted": "/System/Volumes/Data"
@@ -110,6 +112,7 @@
     { "pid": 637, "name": "containermanagerd" },
     { "pid": 638, "name": "pboard" },
     { "pid": 639, "name": "identityservicesd" },
-    { "pid": 641, "name": "trustd" }
+    { "pid": 641, "name": "trustd" },
+    { "pid": 643, "name": "siriactionsd" }
   ]
 }
