@@ -1,8 +1,7 @@
 import { totalmem, freemem } from 'node:os';
 import diskInfo from 'node-disk-info';
 
-import { calculatePercentage, exec, formatBytesIntoMb } from './utils.js';
-import { DARWIN_HDD_SIZE } from './constants.js';
+import { calculatePercentage, formatBytesIntoMb } from './utils.js';
 
 const parseDiskData = (dataList) => {
   const hdd = {

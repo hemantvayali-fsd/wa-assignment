@@ -1,12 +1,10 @@
-import { exec } from "./utils.js";
+import { exec } from "../utils.js";
 
-export class Darwin {
+export class Linux {
   static CMD_DISK = `df -Pl | tail -n +2`;
 
   static run = async () => {
-    const re = new RegExp(/^(\/dev\/disk\d{1})/);
     const drives = [];
-    const disks = {};
     let totalUsedSpace = 0;
     let totalDiskSpace = 0;
 
@@ -25,26 +23,19 @@ export class Darwin {
       }
       data.freeSpacePercentage = 100 - data.usedSpacePercentage;
       totalUsedSpace += data.usedSpace;
-      const diskName = data.fileSystem.match(re)[0];
-      if (!disks[diskName]) {
-        totalDiskSpace += data.totalSpace;
-        disks[diskName] = true;
-      }
+      totalDiskSpace += data.totalSpace;
       drives.push(data);
     }
-    console.log(disks, totalDiskSpace, totalUsedSpace)
     return {
-      totalUsedSpace,
-      totalDiskSpace,
+      totalSpace: totalDiskSpace,
+      usedSpace: totalUsedSpace,
+      freeSpace: totalDiskSpace - totalUsedSpace,
       drives
     }
-
   }
 
   static convertToMB = (bytes) => {
     if (!bytes) return 0;
-    return Math.ceil(bytes / 1024 / 2);
+    return Math.ceil(bytes / 1024);
   }
 }
-
-Darwin.run();
