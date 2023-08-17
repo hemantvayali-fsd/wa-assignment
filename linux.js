@@ -23,7 +23,7 @@ export class Darwin {
       }
       data.freeSpacePercentage = 100 - data.usedSpacePercentage;
       totalUsedSpace += data.usedSpace;
-      totalSpace += data.totalSpace;
+      totalDiskSpace += data.totalSpace;
       drives.push(data);
     }
     console.log(disks, totalDiskSpace, totalUsedSpace)
