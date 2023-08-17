@@ -1,61 +1,115 @@
 {
-  "timestamp": "2023-08-16T10:23:06.367Z",
+  "timestamp": "2023-08-17T07:08:12.893Z",
   "ram": {
-    "totalSpace": 965.7421875,
-    "usedSpace": { "inMb": 422.7421875, "inPerc": 44 },
-    "freeSpace": { "inMb": 543, "inPerc": 57 }
+    "totalSpace": 16384,
+    "usedSpace": { "inMb": 16162, "inPerc": 99 },
+    "freeSpace": { "inMb": 222, "inPerc": 2 }
   },
-  "processes": [
-    { "pid": 23937, "name": "systemd" },
-    { "pid": 23939, "name": "(sd-pam)" },
-    { "pid": 24021, "name": "sshd" },
-    { "pid": 24022, "name": "bash" },
-    { "pid": 24344, "name": "sshd" },
-    { "pid": 24345, "name": "bash" },
-    { "pid": 24633, "name": "node" },
-    { "pid": 24644, "name": "curl" }
-  ],
   "hdd": {
-    "totalSpace": 19663,
-    "usedSpace": { "inMb": 2377, "inPerc": 13 },
-    "freeSpace": { "inMb": 17286, "inPerc": 87 },
+    "totalSpace": 471983,
+    "usedSpace": 222870,
+    "freeSpace": 249113,
     "drives": [
       {
-        "mountPoint": "/",
-        "totalSpace": 19663,
-        "usedSpace": { "inMb": 2368, "inPerc": 13 },
-        "freeSpace": { "inMb": 17295, "inPerc": 87 }
+        "fileSystem": "/dev/disk3s1s1",
+        "totalSpace": 471483,
+        "usedSpace": 8642,
+        "freeSpace": 247718,
+        "usedSpacePercent": 4,
+        "freeSpacePercent": 96,
+        "mounted": "/"
       },
       {
-        "mountPoint": "/dev/shm",
-        "totalSpace": 483,
-        "usedSpace": { "inMb": 0, "inPerc": 0 },
-        "freeSpace": { "inMb": 483, "inPerc": 100 }
+        "fileSystem": "/dev/disk3s6",
+        "totalSpace": 471483,
+        "usedSpace": 1,
+        "freeSpace": 247718,
+        "usedSpacePercent": 1,
+        "freeSpacePercent": 99,
+        "mounted": "/System/Volumes/VM"
       },
       {
-        "mountPoint": "/run",
-        "totalSpace": 194,
-        "usedSpace": { "inMb": 1, "inPerc": 1 },
-        "freeSpace": { "inMb": 193, "inPerc": 99 }
+        "fileSystem": "/dev/disk3s2",
+        "totalSpace": 471483,
+        "usedSpace": 4803,
+        "freeSpace": 247718,
+        "usedSpacePercent": 2,
+        "freeSpacePercent": 98,
+        "mounted": "/System/Volumes/Preboot"
       },
       {
-        "mountPoint": "/run/lock",
-        "totalSpace": 5,
-        "usedSpace": { "inMb": 0, "inPerc": 0 },
-        "freeSpace": { "inMb": 5, "inPerc": 100 }
+        "fileSystem": "/dev/disk3s4",
+        "totalSpace": 471483,
+        "usedSpace": 26,
+        "freeSpace": 247718,
+        "usedSpacePercent": 1,
+        "freeSpacePercent": 99,
+        "mounted": "/System/Volumes/Update"
       },
       {
-        "mountPoint": "/boot/efi",
-        "totalSpace": 105,
-        "usedSpace": { "inMb": 7, "inPerc": 7 },
-        "freeSpace": { "inMb": 98, "inPerc": 93 }
+        "fileSystem": "/dev/disk1s2",
+        "totalSpace": 500,
+        "usedSpace": 7,
+        "freeSpace": 481,
+        "usedSpacePercent": 2,
+        "freeSpacePercent": 98,
+        "mounted": "/System/Volumes/xarts"
       },
       {
-        "mountPoint": "/run/user/1000",
-        "totalSpace": 97,
-        "usedSpace": { "inMb": 1, "inPerc": 2 },
-        "freeSpace": { "inMb": 96, "inPerc": 98 }
+        "fileSystem": "/dev/disk1s1",
+        "totalSpace": 500,
+        "usedSpace": 7,
+        "freeSpace": 481,
+        "usedSpacePercent": 2,
+        "freeSpacePercent": 98,
+        "mounted": "/System/Volumes/iSCPreboot"
+      },
+      {
+        "fileSystem": "/dev/disk1s3",
+        "totalSpace": 500,
+        "usedSpace": 3,
+        "freeSpace": 481,
+        "usedSpacePercent": 1,
+        "freeSpacePercent": 99,
+        "mounted": "/System/Volumes/Hardware"
+      },
+      {
+        "fileSystem": "/dev/disk3s5",
+        "totalSpace": 471483,
+        "usedSpace": 209381,
+        "freeSpace": 247718,
+        "usedSpacePercent": 46,
+        "freeSpacePercent": 54,
+        "mounted": "/System/Volumes/Data"
       }
     ]
-  }
+  },
+  "processes": [
+    { "pid": 589, "name": "distnoted" },
+    { "pid": 599, "name": "cfprefsd" },
+    { "pid": 606, "name": "UserEventAgent" },
+    { "pid": 610, "name": "knowledge-agent" },
+    { "pid": 614, "name": "WindowManager" },
+    { "pid": 615, "name": "BackgroundTaskManagementAgent" },
+    { "pid": 616, "name": "lsd" },
+    { "pid": 617, "name": "usernoted" },
+    { "pid": 618, "name": "accountsd" },
+    { "pid": 619, "name": "talagent" },
+    { "pid": 620, "name": "Dock" },
+    { "pid": 622, "name": "BiomeAgent" },
+    { "pid": 623, "name": "donotdisturbd" },
+    { "pid": 624, "name": "ControlCenter" },
+    { "pid": 625, "name": "csnameddatad" },
+    { "pid": 626, "name": "rapportd" },
+    { "pid": 627, "name": "SystemUIServer" },
+    { "pid": 629, "name": "Finder" },
+    { "pid": 630, "name": "AppSSOAgent" },
+    { "pid": 631, "name": "secd" },
+    { "pid": 635, "name": "pkd" },
+    { "pid": 636, "name": "tccd" },
+    { "pid": 637, "name": "containermanagerd" },
+    { "pid": 638, "name": "pboard" },
+    { "pid": 639, "name": "identityservicesd" },
+    { "pid": 641, "name": "trustd" }
+  ]
 }

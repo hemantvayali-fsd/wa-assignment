@@ -1,6 +1,8 @@
 import { platform as detectPlatform } from 'node:os';
 import { processDarwinDisk } from './darwin.js';
 import { processLinuxDisk } from './linux.js';
+import { processWindowsDisk } from './windows.js';
+
 const platform = detectPlatform().toLowerCase();
 
 export const getDriveInfo = async () => {
@@ -10,12 +12,8 @@ export const getDriveInfo = async () => {
     case "linux":
       return processLinuxDisk();
     case "win32":
-      break;
+      return processWindowsDisk();
     default:
       throw new Error("Platform not supported");
   }
 }
-
-(async () => {
-  console.log(await getDriveInfo())
-})()

@@ -35,5 +35,5 @@ export const processLinuxDisk = async () => {
 
 function convertToMB(bytes) {
   if (!bytes) return 0;
-  return Math.ceil(bytes / 1024 / 2);
+  return Math.ceil(bytes / 1024);
 }
