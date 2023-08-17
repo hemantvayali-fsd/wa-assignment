@@ -26,14 +26,14 @@ export class Darwin {
       totalDiskSpace += data.totalSpace;
       drives.push(data);
     }
-    console.log(disks, totalDiskSpace, totalUsedSpace)
-    return {
+    const obj = {
       totalSpace: totalDiskSpace,
       usedSpace: totalUsedSpace,
       freeSpace: totalDiskSpace - totalUsedSpace,
       drives
     }
-
+    console.log(obj);
+    return obj;
   }
 
   static convertToMB = (bytes) => {
