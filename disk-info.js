@@ -1,7 +1,8 @@
 import { totalmem, freemem } from 'node:os';
 import diskInfo from 'node-disk-info';
 
-import { calculatePercentage, formatBytesIntoMb } from './utils.js';
+import { calculatePercentage, exec, formatBytesIntoMb } from './utils.js';
+import { DARWIN_HDD_SIZE } from './constants.js';
 
 const parseDiskData = (dataList) => {
   const hdd = {
@@ -10,6 +11,7 @@ const parseDiskData = (dataList) => {
     freeSpace: { inMb: 0, inPerc: 0 },
     drives: []
   };
+  console.log(totalHddSpace);
   hdd.totalSpace = formatBytesIntoMb(dataList[0].blocks);
   for (let drive of dataList) {
     // process data for each drive

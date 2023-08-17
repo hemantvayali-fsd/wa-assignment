@@ -1,6 +1,13 @@
+import { execSync } from 'node:child_process';
 import { platform as getPlatform } from 'node:os';
 
 const platform = getPlatform().toLowerCase();
+
+export const exec = (command, useSync = false) => {
+  return useSync
+    ? execSync(command, { windowsHide: true, encoding: 'buffer' }).toString()
+    : exec(command, { windowsHide: true, encoding: 'buffer' }).toString();
+}
 
 /*
   Calculates percentage from given numbers

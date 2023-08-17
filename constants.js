@@ -1,0 +1,1 @@
+export const DARWIN_HDD_SIZE = `export BLOCKSIZE=1024 && df -l | sed -n 2p | awk '{print $2}'`;
