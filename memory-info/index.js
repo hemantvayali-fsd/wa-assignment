@@ -19,7 +19,7 @@ export const getDriveInfo = async () => {
 }
 
 export const getRamData = () => {
-  const totalRAM = (totalmem() / 1024 / 1024);
+  const totalRAM = Math.round(totalmem() / 1024 / 1024);
   const freeRAM = Math.round(freemem() / 1024 / 1024);
   const freeRAMPercent = Math.round((freeRAM / totalRAM) * 100);
   const usedRAM = totalRAM - freeRAM;
